@@ -3,6 +3,7 @@
 let
   browser = "firefox.desktop";
   imgviewer = "org.gnome.Loupe.desktop";
+  pdfviewer = "org.gnome.Evince.desktop";
 in
 {
   config = {
@@ -50,6 +51,8 @@ in
       "image/avif" = [ "${imgviewer}" ];
       "image/heic" = [ "${imgviewer}" ];
       "image/jxl" = [ "${imgviewer}" ];
+
+      "application/pdf" = [ "${pdfviewer}" ];
     };
 
     dconf = {
