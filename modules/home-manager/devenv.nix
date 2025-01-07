@@ -13,6 +13,7 @@
       jetbrains-toolbox
       direnv
       fh
+      devenv
     ];
 
     home.sessionVariables = {

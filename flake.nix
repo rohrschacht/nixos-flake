@@ -29,5 +29,13 @@
         inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t420
       ];
     };
+    nixosConfigurations.curie = nixpkgs.lib.nixosSystem {
+      specialArgs = {inherit inputs;};
+      modules = [
+        ./hosts/curie/configuration.nix
+        inputs.home-manager.nixosModules.default
+        inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14
+      ];
+    };
   };
 }

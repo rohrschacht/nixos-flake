@@ -5,6 +5,8 @@
     environment.systemPackages = with pkgs; [
       gnumake
       gcc
+      cmake
+      pkg-config
     ];
   };
 }

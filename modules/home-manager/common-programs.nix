@@ -24,6 +24,8 @@
       gnupg
       nextcloud-client
       bat
+      keepassxc
+      remmina
     ];
 
     programs.btop = {

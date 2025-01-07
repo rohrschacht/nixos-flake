@@ -31,10 +31,10 @@
   };
 
   my-portable.enable = true;
-  my-steam.enable = true;
+  my-steam.enable = false;
   my-container.enable = true;
   additional-users.valerie.enable = false;
-  android-devenv.enable = true;
+  android-devenv.enable = false;
 
   # Bootloader.
   # boot.loader.systemd-boot.enable = true;
@@ -46,7 +46,7 @@
     efiSupport = true;
   };
 
-  networking.hostName = "copernicus"; # Define your hostname.
+  networking.hostName = "curie"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
