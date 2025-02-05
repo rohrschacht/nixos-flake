@@ -14,6 +14,7 @@
       ncdu
       tmux
       nh
+      dig
     ];
 
     programs.nix-ld.enable = true;
