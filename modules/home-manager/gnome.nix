@@ -76,6 +76,10 @@ in
           # gtk-theme = "Nordic";
           # toolkit-accessibility = true;
         };
+        "org/gnome/mutter" = {
+          edge-tiling = true;
+          workspaces-only-on-primary = true;
+        };
         "org/gnome/settings-daemon/plugins/color" = {
           night-light-enabled = true;
         };
@@ -107,8 +111,10 @@ in
           switch-to-workspace-2 = ["<Super>2"];
           switch-to-workspace-3 = ["<Super>3"];
           switch-to-workspace-4 = ["<Super>4"];
-          switch-applications = ["<Super>Tab" "<Alt>Tab" "<Super>j"];
-          switch-applications-backward = ["<Shift><Super>Tab" "<Shift><Alt>Tab" "<Super>k"];
+          switch-applications = ["<Super>Tab" "<Alt>Tab"];
+          switch-applications-backward = ["<Shift><Super>Tab" "<Shift><Alt>Tab"];
+          cycle-windows = ["<Super>j"];
+          cycle-windows-backward = ["<Super>k"];
         };
         "org/gnome/settings-daemon/plugins/media-keys" = {
           email = ["<Super>c"];
