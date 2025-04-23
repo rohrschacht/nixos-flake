@@ -15,6 +15,7 @@
       tmux
       nh
       dig
+      nmap
     ];
 
     programs.nix-ld.enable = true;
