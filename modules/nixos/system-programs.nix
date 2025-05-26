@@ -16,6 +16,7 @@
       nh
       dig
       nmap
+      tcpdump
     ];
 
     programs.nix-ld.enable = true;

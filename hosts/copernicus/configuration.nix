@@ -22,7 +22,7 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   home-manager = {
-    backupFileExtension = "backup";
+    backupFileExtension = "hm-backup";
     # also pass inputs to home-manager modules
     extraSpecialArgs = {inherit inputs;};
     users = {
