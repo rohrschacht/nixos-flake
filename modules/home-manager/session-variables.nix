@@ -3,7 +3,7 @@
 {
   config = {
     home.sessionVariables = {
-      FLAKE="/home/tobias/nixos";
+      NH_FLAKE="/home/tobias/nixos";
       EDITOR="vim";
     };
   };
