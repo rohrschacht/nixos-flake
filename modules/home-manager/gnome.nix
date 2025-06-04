@@ -79,6 +79,7 @@ in
         "org/gnome/mutter" = {
           edge-tiling = true;
           workspaces-only-on-primary = true;
+          dynamic-workspaces = false;
         };
         "org/gnome/settings-daemon/plugins/color" = {
           night-light-enabled = true;
