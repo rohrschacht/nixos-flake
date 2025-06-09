@@ -76,6 +76,10 @@ in
           # gtk-theme = "Nordic";
           # toolkit-accessibility = true;
         };
+        "org/gnome/desktop/peripherals/touchpad" = {
+          click-method = "areas";
+          two-finger-scrolling-enabled = true;
+        };
         "org/gnome/mutter" = {
           edge-tiling = true;
           workspaces-only-on-primary = true;
