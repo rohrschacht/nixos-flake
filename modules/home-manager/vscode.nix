@@ -4,12 +4,12 @@
   config = {
     programs.vscode = {
       enable = true;
-      enableUpdateCheck = false;
-      enableExtensionUpdateCheck = false;
+      profiles.default.enableUpdateCheck = false;
+      profiles.default.enableExtensionUpdateCheck = false;
       mutableExtensionsDir = false;
 
       # Extensions
-      extensions = (with pkgs.vscode-extensions; [
+      profiles.default.extensions = (with pkgs.vscode-extensions; [
         bbenoist.nix
       ]);
     };
