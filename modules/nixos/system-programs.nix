@@ -17,6 +17,8 @@
       dig
       nmap
       tcpdump
+      clamav
+      clamtk
     ];
 
     programs.nix-ld.enable = true;
