@@ -14,6 +14,7 @@ in
     home.packages = with pkgs; [
       gnomeExtensions.appindicator
       gnomeExtensions.system-monitor
+      gnomeExtensions.caffeine
     ];
 
     xdg.mimeApps.enable = true;
