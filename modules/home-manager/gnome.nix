@@ -64,6 +64,7 @@ in
           enabled-extensions = with pkgs.gnomeExtensions; [
             appindicator.extensionUuid
             system-monitor.extensionUuid
+            caffeine.extensionUuid
           ];
           favorite-apps = ["nautilus.desktop" "firefox.desktop" "thunderbird.desktop" "org.gnome.Console.desktop"];
         };
