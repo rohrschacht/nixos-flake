@@ -39,5 +39,10 @@
       enable = true;
       enableSSHSupport = true;
     };
+
+    services.clamav = {
+      daemon.enable = true;
+      updater.enable = true;
+    };
   };
 }
