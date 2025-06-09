@@ -13,6 +13,8 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
+  boot.kernelParams = [ "zfs.zfs_arc_max=4294967296" ];
+
   fileSystems."/" =
     { device = "zpool/root";
       fsType = "zfs";
