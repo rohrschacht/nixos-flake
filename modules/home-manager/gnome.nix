@@ -15,6 +15,8 @@ in
       gnomeExtensions.appindicator
       gnomeExtensions.system-monitor
       gnomeExtensions.caffeine
+      
+      raleway
     ];
 
     xdg.mimeApps.enable = true;
@@ -54,6 +56,9 @@ in
       "image/jxl" = [ "${imgviewer}" ];
 
       "application/pdf" = [ "${pdfviewer}" ];
+
+      "application/vnd.openxmlformats-officedocument.presentationml.presentation" = [ "onlyoffice-desktopeditors.desktop" ];
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" = [ "onlyoffice-desktopeditors.desktop" ];
     };
 
     dconf = {
