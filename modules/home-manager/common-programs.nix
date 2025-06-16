@@ -26,6 +26,7 @@
       bat
       keepassxc
       remmina
+      drawio
     ];
 
     programs.btop = {
