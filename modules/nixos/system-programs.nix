@@ -19,6 +19,8 @@
       tcpdump
       clamav
       clamtk
+      gptfdisk
+      # ventoy
     ];
 
     programs.nix-ld.enable = true;
@@ -44,5 +46,9 @@
       daemon.enable = true;
       updater.enable = true;
     };
+
+    fonts.packages = with pkgs; [
+      raleway
+    ];
   };
 }

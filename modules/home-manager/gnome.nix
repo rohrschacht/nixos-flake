@@ -15,8 +15,6 @@ in
       gnomeExtensions.appindicator
       gnomeExtensions.system-monitor
       gnomeExtensions.caffeine
-      
-      raleway
     ];
 
     xdg.mimeApps.enable = true;
