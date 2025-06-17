@@ -27,8 +27,6 @@
 
       shellInit = ''
         set fish_greeting
-
-        set -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
       '';
 
       shellAliases = {
