@@ -1,7 +1,7 @@
 { lib, config, pkgs, ...}:
 
 {
-  options.my-git = {
+  options.my.git = {
     email = lib.mkOption {
       type = lib.types.str;
       default = "tobias@rohrschacht.de";
@@ -23,10 +23,10 @@
     programs.git = {
       enable = true;
 
-      userEmail = config.my-git.email;
-      userName = config.my-git.name;
+      userEmail = config.my.git.email;
+      userName = config.my.git.name;
 
-      signing.key = config.my-git.signingkey;
+      signing.key = config.my.git.signingkey;
       signing.signByDefault = true;
 
       lfs.enable = true;

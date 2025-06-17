@@ -8,15 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./../../modules/nixos/system-programs.nix
-      ./../../modules/nixos/build-essentials.nix
-      ./../../modules/nixos/main-user.nix
-      ./../../modules/nixos/additional-users.nix
-      ./../../modules/nixos/container.nix
-      ./../../modules/nixos/desktop.nix
-      ./../../modules/nixos/portable.nix
-      ./../../modules/nixos/my-steam.nix
-      ./../../modules/nixos/android-devenv.nix
+      ./../../modules/nixos
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -30,11 +22,14 @@
     };
   };
 
-  my-portable.enable = false;
-  my-steam.enable = true;
-  my-container.enable = true;
-  additional-users.valerie.enable = false;
-  android-devenv.enable = true;
+  my = {
+    portable.enable = false;
+    steam.enable = true;
+    container.enable = true;
+    virt.enable = false;
+    additional-users.valerie.enable = false;
+    dev.android.enable = false;
+  };
 
   # Bootloader.
   boot.loader.grub.enable = true;

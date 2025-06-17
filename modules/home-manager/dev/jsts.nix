@@ -1,11 +1,11 @@
 { lib, config, pkgs, ... }:
 
 {
-  options.jsts-devenv = {
+  options.my.dev.jsts = {
     enable = lib.mkEnableOption "enable js/ts development environment";
   };
 
-  config = lib.mkIf config.jsts-devenv.enable {
+  config = lib.mkIf config.my.dev.jsts.enable {
     home.packages = with pkgs; [
       deno
       nodejs_20

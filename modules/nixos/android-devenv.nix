@@ -1,11 +1,11 @@
 { lib, config, pkgs, ... }:
 
 {
-  options.android-devenv = {
+  options.my.dev.android = {
     enable = lib.mkEnableOption "enable android dev environment";
   };
 
-  config = lib.mkIf config.android-devenv.enable {
+  config = lib.mkIf config.my.dev.android.enable {
     users.groups.plugdev = {};
 
     users.users.tobias.extraGroups = [ "adbusers" "plugdev" ];

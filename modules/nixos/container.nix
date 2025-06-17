@@ -1,10 +1,10 @@
 { lib, config, pkgs, ... }:
 
 {
-  options.my-container = {
+  options.my.container = {
     enable = lib.mkEnableOption "enable container runtimes";
   };
-  config = lib.mkIf config.my-container.enable {
+  config = lib.mkIf config.my.container.enable {
     virtualisation.docker.enable = true;
 
     # Podman

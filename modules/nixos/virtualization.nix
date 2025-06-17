@@ -1,10 +1,10 @@
 { lib, config, pkgs, ... }:
 
 {
-  options.my-virt = {
+  options.my.virt = {
     enable = lib.mkEnableOption "enable qemu/kvm";
   };
-  config = lib.mkIf config.my-virt.enable {
+  config = lib.mkIf config.my.virt.enable {
     programs.virt-manager.enable = true;
     
     virtualisation.libvirtd.enable = true;

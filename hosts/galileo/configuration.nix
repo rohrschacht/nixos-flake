@@ -8,16 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./../../modules/nixos/system-programs.nix
-      ./../../modules/nixos/build-essentials.nix
-      ./../../modules/nixos/main-user.nix
-      ./../../modules/nixos/additional-users.nix
-      ./../../modules/nixos/container.nix
-      ./../../modules/nixos/virtualization.nix
-      ./../../modules/nixos/desktop.nix
-      ./../../modules/nixos/portable.nix
-      ./../../modules/nixos/my-steam.nix
-      ./../../modules/nixos/android-devenv.nix
+      ./../../modules/nixos
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -31,12 +22,14 @@
     };
   };
 
-  my-portable.enable = true;
-  my-steam.enable = false;
-  my-container.enable = true;
-  my-virt.enable = true;
-  additional-users.valerie.enable = true;
-  android-devenv.enable = false;
+  my = {
+    portable.enable = true;
+    steam.enable = false;
+    container.enable = true;
+    virt.enable = true;
+    additional-users.valerie.enable = true;
+    dev.android.enable = false;
+  };
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;

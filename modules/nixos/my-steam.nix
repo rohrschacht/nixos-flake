@@ -1,11 +1,11 @@
 { lib, config, pkgs, ... }:
 
 {
-  options.my-steam = {
+  options.my.steam = {
     enable = lib.mkEnableOption "enable steam";
   };
 
-  config = lib.mkIf config.my-steam.enable {
+  config = lib.mkIf config.my.steam.enable {
     programs.steam = {
       enable = true;
       gamescopeSession.enable = true;

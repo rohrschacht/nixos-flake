@@ -18,13 +18,7 @@
   nixpkgs.config.allowUnfree = true;
 
   imports = [
-    ./../../modules/home-manager/common-programs.nix
-    ./../../modules/home-manager/gnome.nix
-    ./../../modules/home-manager/admin-utils.nix
-    ./../../modules/home-manager/git.nix
-    ./../../modules/home-manager/fish.nix
-    ./../../modules/home-manager/devenv.nix
-    ./../../modules/home-manager/session-variables.nix
+    ./../../modules/home-manager
   ];
 
   # The home.packages option allows you to install Nix packages into your

@@ -1,11 +1,11 @@
 { lib, config, pkgs, ... }:
 
 {
-  options.go-devenv = {
+  options.my.dev.go = {
     enable = lib.mkEnableOption "enable go development environment";
   };
 
-  config = lib.mkIf config.go-devenv.enable {
+  config = lib.mkIf config.my.dev.go.enable {
     home.packages = with pkgs; [
       go
     ];

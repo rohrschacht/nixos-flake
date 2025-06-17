@@ -18,18 +18,10 @@
   nixpkgs.config.allowUnfree = true;
 
   imports = [
-    ./../../modules/home-manager/common-programs.nix
-    ./../../modules/home-manager/gnome.nix
-    ./../../modules/home-manager/admin-utils.nix
-    ./../../modules/home-manager/git.nix
-    ./../../modules/home-manager/fish.nix
-    ./../../modules/home-manager/devenv.nix
-    ./../../modules/home-manager/vscode.nix
-    ./../../modules/home-manager/session-variables.nix
+    ./../../modules/home-manager
   ];
 
-  android-devenv.enable = true;
-  my-git = {
+  my.git = {
     email = "tobias@rohrschacht.de";
     name = "Tobias Petrich";
     signingkey = "D99301AD0515015F!";

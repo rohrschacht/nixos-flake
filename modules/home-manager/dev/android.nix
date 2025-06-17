@@ -28,11 +28,11 @@ let
   localAndroidHome = "Android/Sdk";
 in
 {
-  options.android-devenv = {
+  options.my.dev.android = {
     enable = lib.mkEnableOption "enable android development environment";
   };
 
-  config = lib.mkIf config.android-devenv.enable {
+  config = lib.mkIf config.my.dev.android.enable {
     nixpkgs.config.android_sdk.accept_license = true;
 
     home.packages = with pkgs; [
