@@ -71,6 +71,9 @@ in
           ];
           favorite-apps = ["nautilus.desktop" "firefox.desktop" "thunderbird.desktop" "org.gnome.Console.desktop"];
         };
+        "org/gnome/settings-daemon/plugins/power" = {
+          sleep-inactive-ac-type = "nothing";
+        };
         "org/gnome/desktop/wm/preferences" = {
           num-workspaces = 5;
         };
@@ -83,6 +86,7 @@ in
           # font-hinting = "slight";
           # gtk-theme = "Nordic";
           # toolkit-accessibility = true;
+          show-battery-percentage = true;
         };
         "org/gnome/desktop/peripherals/touchpad" = {
           click-method = "areas";
