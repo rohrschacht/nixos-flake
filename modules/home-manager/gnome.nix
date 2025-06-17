@@ -71,6 +71,9 @@ in
           ];
           favorite-apps = ["nautilus.desktop" "firefox.desktop" "thunderbird.desktop" "org.gnome.Console.desktop"];
         };
+        "org/gnome/desktop/wm/preferences" = {
+          num-workspaces = 5;
+        };
         "org/gnome/desktop/interface" = {
           clock-show-seconds = true;
           clock-show-weekday = true;
@@ -98,6 +101,7 @@ in
           switch-to-application-2 = [ "disabled" ];
           switch-to-application-3 = [ "disabled" ];
           switch-to-application-4 = [ "disabled" ];
+          switch-to-application-5 = [ "disabled" ];
         };
         "org/gnome/desktop/wm/keybindings" = {
           # activate-window-menu = "disabled";
@@ -117,10 +121,12 @@ in
           move-to-workspace-2 = ["<Shift><Super>2"];
           move-to-workspace-3 = ["<Shift><Super>3"];
           move-to-workspace-4 = ["<Shift><Super>4"];
+          move-to-workspace-5 = ["<Shift><Super>5"];
           switch-to-workspace-1 = ["<Super>1"];
           switch-to-workspace-2 = ["<Super>2"];
           switch-to-workspace-3 = ["<Super>3"];
           switch-to-workspace-4 = ["<Super>4"];
+          switch-to-workspace-5 = ["<Super>5"];
           switch-applications = ["<Super>Tab" "<Alt>Tab"];
           switch-applications-backward = ["<Shift><Super>Tab" "<Shift><Alt>Tab"];
           cycle-windows = ["<Super>j"];
