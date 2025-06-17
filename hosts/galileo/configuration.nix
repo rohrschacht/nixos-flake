@@ -13,6 +13,7 @@
       ./../../modules/nixos/main-user.nix
       ./../../modules/nixos/additional-users.nix
       ./../../modules/nixos/container.nix
+      ./../../modules/nixos/virtualization.nix
       ./../../modules/nixos/desktop.nix
       ./../../modules/nixos/portable.nix
       ./../../modules/nixos/my-steam.nix
@@ -33,6 +34,7 @@
   my-portable.enable = true;
   my-steam.enable = false;
   my-container.enable = true;
+  my-virt.enable = true;
   additional-users.valerie.enable = true;
   android-devenv.enable = false;
 
