@@ -41,7 +41,10 @@
     efiSupport = true;
   };
 
-  networking.hostName = "curie"; # Define your hostname.
+  boot.supportedFilesystems = [ "zfs" ];
+
+  networking.hostId = "b0e948fa";
+  networking.hostName = "curie";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary

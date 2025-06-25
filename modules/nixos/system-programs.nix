@@ -20,6 +20,8 @@
       clamav
       clamtk
       gptfdisk
+      zfs
+      smartmontools
       # ventoy
     ];
 
