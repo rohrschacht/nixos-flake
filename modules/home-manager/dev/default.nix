@@ -6,6 +6,7 @@
     ./go.nix
     ./py.nix
     ./android.nix
+    ./android-devenv.nix
   ];
 
   config = {
@@ -24,5 +25,6 @@
     my.dev.jsts.enable = lib.mkDefault true;
     my.dev.py.enable = lib.mkDefault true;
     my.dev.android.enable = lib.mkDefault true;
+    my.dev.android-devenv.enable = lib.mkDefault true;
   };
 }
