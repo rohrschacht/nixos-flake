@@ -1,4 +1,4 @@
-{ lib, config, pkgs, ... }:
+{ lib, config, pkgs, inputs, ... }:
 
 {
   imports = [
@@ -14,7 +14,9 @@
       jetbrains-toolbox
       direnv
       fh
-      devenv
+      # devenv
+    ] ++ [
+      inputs.nixpkgs-pinned.legacyPackages.${system}.devenv
     ];
 
     home.sessionVariables = {
