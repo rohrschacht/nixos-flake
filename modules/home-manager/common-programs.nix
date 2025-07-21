@@ -27,6 +27,7 @@
       keepassxc
       remmina
       drawio
+      imagemagick
     ];
 
     programs.btop = {

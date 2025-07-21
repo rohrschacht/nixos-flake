@@ -15,6 +15,7 @@
       direnv
       fh
       devenv
+      awscli2
     ] ++ [
       # inputs.nixpkgs-pinned.legacyPackages.${system}.devenv
     ];
