@@ -14,9 +14,9 @@
       jetbrains-toolbox
       direnv
       fh
-      # devenv
+      devenv
     ] ++ [
-      inputs.nixpkgs-pinned.legacyPackages.${system}.devenv
+      # inputs.nixpkgs-pinned.legacyPackages.${system}.devenv
     ];
 
     home.sessionVariables = {
