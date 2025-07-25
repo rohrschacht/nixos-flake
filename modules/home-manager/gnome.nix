@@ -57,6 +57,8 @@ in
 
       "application/vnd.openxmlformats-officedocument.presentationml.presentation" = [ "onlyoffice-desktopeditors.desktop" ];
       "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" = [ "onlyoffice-desktopeditors.desktop" ];
+
+      "text/markdown" = [ "org.gnome.TextEditor.desktop" ];
     };
 
     dconf = {
@@ -72,6 +74,7 @@ in
           favorite-apps = ["nautilus.desktop" "firefox.desktop" "thunderbird.desktop" "org.gnome.Console.desktop"];
         };
         "org/gnome/settings-daemon/plugins/power" = {
+          ambient-enabled = false;
           sleep-inactive-ac-type = "nothing";
         };
         "org/gnome/desktop/wm/preferences" = {
