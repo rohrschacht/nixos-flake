@@ -28,6 +28,7 @@
       remmina
       drawio
       imagemagick
+      pdfarranger
     ];
 
     programs.btop = {
