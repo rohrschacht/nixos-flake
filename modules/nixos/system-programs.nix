@@ -23,6 +23,8 @@
       zfs
       smartmontools
       # ventoy
+      exfat
+      exfatprogs
     ];
 
     programs.nix-ld.enable = true;

@@ -8,7 +8,7 @@
     users.users.tobias = {
       isNormalUser = true;
       description = "Tobias";
-      extraGroups = [ "networkmanager" "wheel" "docker" "adm" ];
+      extraGroups = [ "networkmanager" "wheel" "docker" "adm" "podman" ];
       shell = pkgs.fish;
     };
   };
