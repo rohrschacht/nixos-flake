@@ -29,6 +29,8 @@
       drawio
       imagemagick
       pdfarranger
+      yubikey-personalization-gui
+      yubikey-manager
     ];
 
     programs.btop = {
