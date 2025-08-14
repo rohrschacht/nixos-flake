@@ -59,6 +59,7 @@ in
       "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" = [ "onlyoffice-desktopeditors.desktop" ];
 
       "text/markdown" = [ "org.gnome.TextEditor.desktop" ];
+      "text/plain" = [ "org.gnome.TextEditor.desktop" ];
     };
 
     dconf = {
