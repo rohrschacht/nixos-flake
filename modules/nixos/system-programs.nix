@@ -25,6 +25,7 @@
       # ventoy
       exfat
       exfatprogs
+      dmidecode
     ];
 
     programs.nix-ld.enable = true;

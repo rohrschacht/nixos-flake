@@ -16,6 +16,7 @@
       fh
       devenv
       awscli2
+      lazygit
     ] ++ [
       # inputs.nixpkgs-pinned.legacyPackages.${system}.devenv
     ];
