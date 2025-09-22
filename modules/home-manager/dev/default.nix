@@ -10,6 +10,8 @@
   ];
 
   config = {
+    fonts.fontconfig.enable = true;
+
     home.packages = with pkgs; [
       jetbrains-toolbox
       direnv
@@ -17,6 +19,10 @@
       devenv
       awscli2
       lazygit
+      devcontainer
+      pre-commit
+      neovim
+      nerd-fonts.symbols-only
     ] ++ [
       # inputs.nixpkgs-pinned.legacyPackages.${system}.devenv
     ];

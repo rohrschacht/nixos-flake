@@ -31,6 +31,7 @@
       pdfarranger
       yubikey-personalization-gui
       yubikey-manager
+      wireshark
     ];
 
     programs.btop = {

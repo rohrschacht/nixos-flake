@@ -26,6 +26,7 @@
       exfat
       exfatprogs
       dmidecode
+      openssl
     ];
 
     programs.nix-ld.enable = true;
