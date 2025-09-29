@@ -87,6 +87,8 @@
         abbr --add gstp 'git stash pop'
         abbr --add gwipe 'git reset --hard && git clean --force -df'
 
+        abbr --add lg 'lazygit'
+
         abbr --add up 'os switch -u'
       '';
     };
