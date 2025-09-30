@@ -20,6 +20,7 @@
       todoist-electron
       lf
       jq
+      yq
       sqlite
       gnupg
       nextcloud-client
@@ -32,6 +33,7 @@
       yubikey-personalization-gui
       yubikey-manager
       wireshark
+      wayclip
     ];
 
     programs.btop = {

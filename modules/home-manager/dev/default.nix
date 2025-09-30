@@ -4,6 +4,7 @@
   imports = [
     ./jsts.nix
     ./go.nix
+    ./rust.nix
     ./py.nix
     ./android.nix
     ./android-devenv.nix
@@ -32,6 +33,7 @@
     };
 
     my.dev.go.enable = lib.mkDefault true;
+    my.dev.rust.enable = lib.mkDefault true;
     my.dev.jsts.enable = lib.mkDefault true;
     my.dev.py.enable = lib.mkDefault true;
     my.dev.android.enable = lib.mkDefault true;
