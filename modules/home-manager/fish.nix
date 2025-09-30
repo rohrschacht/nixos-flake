@@ -23,6 +23,14 @@
             history | uniq | ${pkgs.fzf}/bin/fzf | ${pkgs.wl-clipboard}/bin/wl-copy -n
           '';
         };
+
+        random_background = {
+          body = ''
+            set PICDIR ~/misc/wallpapers
+            set CURPIC (ls $PICDIR | egrep -i "(png|jpg|jpeg)\$" | shuf -n 1)
+            gsettings set org.gnome.desktop.background picture-uri $PICDIR/$CURPIC
+          '';
+        };
       };
 
       shellInit = ''
