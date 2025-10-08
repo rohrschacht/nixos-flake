@@ -33,7 +33,7 @@
       yubikey-personalization-gui
       yubikey-manager
       wireshark
-      wayclip
+      wl-clipboard
     ];
 
     programs.btop = {
