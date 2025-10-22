@@ -24,6 +24,7 @@
       pre-commit
       neovim
       nerd-fonts.symbols-only
+      devpod-desktop
     ] ++ [
       # inputs.nixpkgs-pinned.legacyPackages.${system}.devenv
     ];
