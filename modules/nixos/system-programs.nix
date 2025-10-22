@@ -104,8 +104,31 @@
     };
 
     services.clamav = {
-      daemon.enable = true;
+      daemon = {
+        enable = true;
+        settings = {
+          OnAccessIncludePath = [
+            "/home/tobias"
+            # "/var/lib"
+            # "/tmp"
+            # "/etc"
+            # "/var/tmp"
+          ];
+          OnAccessExcludePath = [
+            "/home/tobias/.cache"
+            "/home/tobias/.mozilla"
+            "/home/tobias/.local/share"
+          ];
+          CrossFilesystems = true;
+          OnAccessPrevention = true;
+          OnAccessExcludeUname = "clamav";
+          OnAccessExcludeRootUID = true;
+          MaxThreads = 20;
+          OnAccessMaxThreads = 20;
+        };
+      };
       updater.enable = true;
+      scanner.enable = true;
     };
 
     fonts.packages = with pkgs; [
