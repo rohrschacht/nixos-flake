@@ -17,7 +17,7 @@
       jetbrains-toolbox
       direnv
       fh
-      devenv
+      # devenv
       awscli2
       lazygit
       devcontainer
