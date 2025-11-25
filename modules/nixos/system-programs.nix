@@ -128,7 +128,7 @@
         };
       };
       updater.enable = true;
-      scanner.enable = true;
+      scanner.enable = false;
     };
 
     fonts.packages = with pkgs; [
