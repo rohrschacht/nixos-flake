@@ -34,6 +34,7 @@
       yubikey-manager
       wireshark
       wl-clipboard
+      libsecret
     ];
 
     programs.btop = {
