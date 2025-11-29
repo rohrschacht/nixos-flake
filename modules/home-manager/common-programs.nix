@@ -35,6 +35,7 @@
       wireshark
       wl-clipboard
       libsecret
+      yubioath-flutter
     ];
 
     programs.btop = {

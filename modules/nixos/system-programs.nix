@@ -134,5 +134,8 @@
     fonts.packages = with pkgs; [
       raleway
     ];
+
+    
+    services.pcscd.enable = true;
   };
 }
