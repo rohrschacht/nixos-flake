@@ -1,4 +1,4 @@
-{ lib, config, pkgs, ... }:
+{ lib, config, pkgs, inputs, ... }:
 
 {
   config = {
@@ -36,6 +36,8 @@
       wl-clipboard
       libsecret
       yubioath-flutter
+    ] ++ [
+      inputs.nixpkgs-unstable.legacyPackages.${system}.rclone
     ];
 
     programs.btop = {

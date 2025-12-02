@@ -5,6 +5,7 @@
    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
    nixpkgs-pinned.url = "github:nixos/nixpkgs/6c64dabd3aa85e0c02ef1cdcb6e1213de64baee3";
+   nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
  
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
