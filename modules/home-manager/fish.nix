@@ -31,6 +31,43 @@
             gsettings set org.gnome.desktop.background picture-uri $PICDIR/$CURPIC
           '';
         };
+
+        rclone_inf_sync = {
+          body = ''
+            set local_dir "$HOME/Gdrive/Infinithings"
+            set remote_dir "infinithings:/Infinithings"
+
+            echo "$(date +'%Y/%m/%d %H:%M:%S') Sync started" >> "$HOME/.config/rclone/rclone.log"
+
+            rclone bisync \
+              "$remote_dir" "$local_dir" \
+              --compare size,modtime,checksum \
+              --modify-window 1s \
+              --create-empty-src-dirs \
+              --drive-acknowledge-abuse \
+              --drive-skip-gdocs \
+              --drive-skip-shortcuts \
+              --drive-skip-dangling-shortcuts \
+              --metadata \
+              --progress \
+              --verbose \
+              --log-file "$HOME/.config/rclone/rclone.log" \
+              --track-renames \
+              --fix-case \
+              --resilient \
+              --recover \
+              --max-lock 2m \
+              --check-access
+
+            sleep 1
+
+            if test $status -eq 0
+              echo "$(date +'%Y/%m/%d %H:%M:%S') Sync done" >> "$HOME/.config/rclone/rclone.log"
+            else
+              echo "$(date +'%Y/%m/%d %H:%M:%S') Sync failed" >> "$HOME/.config/rclone/rclone.log"
+            end
+          '';
+        };
       };
 
       shellInit = ''
