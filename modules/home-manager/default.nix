@@ -10,5 +10,6 @@
     ./dev
     ./vscode.nix
     ./session-variables.nix
+    ./ghostty.nix
   ];
 }

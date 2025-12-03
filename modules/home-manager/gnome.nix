@@ -156,7 +156,7 @@ in
         };
         "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
           name = "terminal";
-          command = "kgx";
+          command = "ghostty";
           binding = "<Super>Return";
         };
         # "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {

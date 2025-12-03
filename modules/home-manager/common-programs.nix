@@ -36,6 +36,8 @@
       wl-clipboard
       libsecret
       yubioath-flutter
+      ghostty
+      yazi
     ] ++ [
       inputs.nixpkgs-unstable.legacyPackages.${system}.rclone
     ];
