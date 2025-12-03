@@ -29,6 +29,7 @@
             set PICDIR ~/misc/wallpapers
             set CURPIC (ls $PICDIR | egrep -i "(png|jpg|jpeg)\$" | shuf -n 1)
             gsettings set org.gnome.desktop.background picture-uri $PICDIR/$CURPIC
+            gsettings set org.gnome.desktop.background picture-uri-dark $PICDIR/$CURPIC
           '';
         };
 
