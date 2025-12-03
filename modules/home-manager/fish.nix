@@ -44,7 +44,31 @@
           '';
         };
 
-        rclone_inf_sync = {
+        inf = {
+          body =''
+            set subcmd $argv[1]
+            set args $argv[2..-1]
+
+            if test -z $subcmd
+              echo "Please specify subcommand, either:"
+              echo "sync"
+              echo "backup"
+              return 1
+            end
+
+            switch $subcmd
+              case sync
+                __inf_rclone_gdrive_sync $args
+              case backup
+                __inf_borg_backup $args
+              case '*'
+                echo "Unknown subcommand: $subcmd" >&2
+                return 1
+            end
+          '';
+        };
+
+        __inf_rclone_gdrive_sync = {
           body = ''
             set local_dir "$HOME/Gdrive/Infinithings"
             set remote_dir "infinithings:/Infinithings"
