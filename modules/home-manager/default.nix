@@ -2,14 +2,15 @@
 
 {
   imports = [
-    ./common-programs.nix
-    ./gnome.nix
-    ./admin-utils.nix
-    ./git.nix
-    ./fish.nix
     ./dev
-    ./vscode.nix
-    ./session-variables.nix
+    ./admin-utils.nix
+    ./common-programs.nix
+    ./fish.nix
+    ./fonts.nix
     ./ghostty.nix
+    ./git.nix
+    ./gnome.nix
+    ./session-variables.nix
+    ./vscode.nix
   ];
 }
