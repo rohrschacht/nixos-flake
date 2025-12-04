@@ -26,7 +26,7 @@
       nerd-fonts.symbols-only
       devpod-desktop
     ] ++ [
-      # inputs.nixpkgs-pinned.legacyPackages.${system}.devenv
+      # inputs.nixpkgs-pinned.legacyPackages.${stdenv.hostPlatform.system}.devenv
     ];
 
     home.sessionVariables = {

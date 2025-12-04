@@ -10,7 +10,7 @@
       qalculate-gtk
       gimp
       inkscape
-      bitwarden
+      bitwarden-desktop
       filezilla
       ferdium
       libreoffice
@@ -30,7 +30,6 @@
       drawio
       imagemagick
       pdfarranger
-      yubikey-personalization-gui
       yubikey-manager
       wireshark
       wl-clipboard
@@ -39,7 +38,7 @@
       ghostty
       yazi
     ] ++ [
-      inputs.nixpkgs-unstable.legacyPackages.${system}.rclone
+      inputs.nixpkgs-unstable.legacyPackages.${stdenv.hostPlatform.system}.rclone
     ];
 
     programs.btop = {

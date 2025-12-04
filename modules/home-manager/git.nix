@@ -23,15 +23,12 @@
     programs.git = {
       enable = true;
 
-      userEmail = config.my.git.email;
-      userName = config.my.git.name;
+      settings = {
+        user = {
+          email = config.my.git.email;
+          name = config.my.git.name;
+        };
 
-      signing.key = config.my.git.signingkey;
-      signing.signByDefault = true;
-
-      lfs.enable = true;
-
-      extraConfig = {
         core = {
           editor = "vim";
         };
@@ -45,6 +42,11 @@
           default = "current";
         };
       };
+
+      signing.key = config.my.git.signingkey;
+      signing.signByDefault = true;
+
+      lfs.enable = true;
     };
   };
 }

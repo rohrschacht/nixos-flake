@@ -10,9 +10,9 @@
     #   HandleLidSwitch=lock
     #   HandleLidSwitchDocked=ignore
     # '';
-    services.logind = {
-      lidSwitch = "lock";
-      lidSwitchDocked = "ignore";
+    services.logind.settings.Login = {
+      HandleLidSwitch = "lock";
+      HandleLidSwitchDocked = "ignore";
     };
   };
 }
