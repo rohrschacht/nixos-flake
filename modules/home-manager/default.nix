@@ -10,6 +10,7 @@
     ./ghostty.nix
     ./git.nix
     ./gnome.nix
+    ./gpg.nix
     ./session-variables.nix
     ./vscode.nix
   ];
