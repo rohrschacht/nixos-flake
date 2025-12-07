@@ -37,6 +37,7 @@
       yubioath-flutter
       ghostty
       yazi
+      xournalpp
     ] ++ [
       inputs.nixpkgs-unstable.legacyPackages.${stdenv.hostPlatform.system}.rclone
     ];
