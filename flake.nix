@@ -16,36 +16,41 @@
   };
 
   outputs = { self, nixpkgs, ... }@inputs: {
-    nixosConfigurations.default = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
-      modules = [
-        ./hosts/default/configuration.nix
-        inputs.home-manager.nixosModules.default
-      ];
-    };
-    nixosConfigurations.copernicus = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
-      modules = [
-        ./hosts/copernicus/configuration.nix
-        inputs.home-manager.nixosModules.default
-        inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t420
-      ];
-    };
-    nixosConfigurations.curie = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
-      modules = [
-        ./hosts/curie/configuration.nix
-        inputs.home-manager.nixosModules.default
-        inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14
-      ];
-    };
-    nixosConfigurations.galileo = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
-      modules = [
-        ./hosts/galileo/configuration.nix
-        inputs.home-manager.nixosModules.default
-        inputs.nixos-hardware.nixosModules.framework-13th-gen-intel
-      ];
+    nixosConfigurations = {
+      default = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./hosts/default/configuration.nix
+          inputs.home-manager.nixosModules.default
+        ];
+      };
+
+      copernicus = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./hosts/copernicus/configuration.nix
+          inputs.home-manager.nixosModules.default
+          inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t420
+        ];
+      };
+
+      curie = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./hosts/curie/configuration.nix
+          inputs.home-manager.nixosModules.default
+          inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14
+        ];
+      };
+
+      galileo = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./hosts/galileo/configuration.nix
+          inputs.home-manager.nixosModules.default
+          inputs.nixos-hardware.nixosModules.framework-13th-gen-intel
+        ];
+      };
     };
   };
 }
