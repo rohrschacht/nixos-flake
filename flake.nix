@@ -15,7 +15,7 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
     nixosConfigurations = {
       default = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
@@ -49,6 +49,18 @@
           ./hosts/galileo/configuration.nix
           inputs.home-manager.nixosModules.default
           inputs.nixos-hardware.nixosModules.framework-13th-gen-intel
+        ];
+      };
+    };
+
+    homeConfigurations = {
+      "tobias@galileo" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages."x86_64-linux";
+        extraSpecialArgs = {
+          inherit self inputs;
+        };
+        modules = [
+          ./hosts/galileo/home.nix
         ];
       };
     };
