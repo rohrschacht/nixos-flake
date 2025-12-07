@@ -18,12 +18,9 @@
       vlc
       zoom-us
       todoist-electron
-      lf
       jq
       yq
       sqlite
-      gnupg
-      bat
       keepassxc
       remmina
       drawio
@@ -34,8 +31,6 @@
       wl-clipboard
       libsecret
       yubioath-flutter
-      ghostty
-      yazi
       xournalpp
     ] ++ [
       inputs.nixpkgs-unstable.legacyPackages.${stdenv.hostPlatform.system}.rclone
@@ -43,6 +38,13 @@
 
     programs.btop = {
       enable = true;
+    };
+
+    programs.bat.enable = true;
+
+    programs.yazi = {
+      enable = true;
+      enableFishIntegration = true;
     };
 
     services.nextcloud-client = {
