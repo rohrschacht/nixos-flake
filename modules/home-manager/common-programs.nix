@@ -23,7 +23,6 @@
       yq
       sqlite
       gnupg
-      nextcloud-client
       bat
       keepassxc
       remmina
@@ -44,6 +43,11 @@
 
     programs.btop = {
       enable = true;
+    };
+
+    services.nextcloud-client = {
+      enable = true;
+      startInBackground = true;
     };
   };
 }
