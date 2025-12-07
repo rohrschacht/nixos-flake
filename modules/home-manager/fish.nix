@@ -33,17 +33,6 @@
           '';
         };
 
-        y = {
-          body = ''
-            set tmp (mktemp -t "yazi-cwd.XXXXXX")
-            yazi $argv --cwd-file="$tmp"
-            if read -z cwd < "$tmp"; and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
-              builtin cd -- "$cwd"
-            end
-            rm -f -- "$tmp"
-          '';
-        };
-
         inf = {
           body =''
             set subcmd $argv[1]
@@ -171,6 +160,8 @@
         abbr --add lg 'lazygit'
 
         abbr --add up 'os switch -u'
+
+        abbr --add y yy
       '';
     };
 
