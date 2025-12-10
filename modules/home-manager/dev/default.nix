@@ -29,6 +29,12 @@
       # inputs.nixpkgs-pinned.legacyPackages.${stdenv.hostPlatform.system}.devenv
     ];
 
+
+    home.file.".config/lazygit/config.yml" = {
+      source = ../configs/lazygit/config.yml;
+      recursive = true;
+    };
+
     home.sessionVariables = {
       DIRENV_WARN_TIMEOUT="5m";
     };
