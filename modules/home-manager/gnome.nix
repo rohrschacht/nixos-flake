@@ -15,6 +15,7 @@ in
       gnomeExtensions.appindicator
       gnomeExtensions.system-monitor
       gnomeExtensions.caffeine
+      gnomeExtensions.quick-settings-tweaker
     ];
 
     xdg.mimeApps.enable = true;
@@ -71,6 +72,7 @@ in
             appindicator.extensionUuid
             system-monitor.extensionUuid
             caffeine.extensionUuid
+            quick-settings-tweaker.extensionUuid
           ];
           favorite-apps = ["nautilus.desktop" "firefox.desktop" "thunderbird.desktop" "org.gnome.Console.desktop"];
         };
