@@ -32,6 +32,7 @@
       libsecret
       yubioath-flutter
       xournalpp
+      ytmdesktop
     ] ++ [
       inputs.nixpkgs-unstable.legacyPackages.${stdenv.hostPlatform.system}.rclone
     ];
