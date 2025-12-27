@@ -25,7 +25,7 @@
   my.git = {
     email = "t.petrich@tu-berlin.de";
     name = "Tobias Petrich";
-    signingkey = "AC90360EC8FC305A!";
+    signingkey = "220BE847F99B1B62!";
   };
 
   # The home.packages option allows you to install Nix packages into your

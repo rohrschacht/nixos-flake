@@ -14,7 +14,7 @@
     };
     signingkey = lib.mkOption {
       type = lib.types.str;
-      default = "D99301AD0515015F!";
+      default = "220BE847F99B1B62!";
       description = "signing key identifier for git";
     };
   };
