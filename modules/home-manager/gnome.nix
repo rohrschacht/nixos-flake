@@ -61,6 +61,8 @@ in
 
       "text/markdown" = [ "org.gnome.TextEditor.desktop" ];
       "text/plain" = [ "org.gnome.TextEditor.desktop" ];
+
+      "video/x-matroska" = [ "vlc.desktop" ];
     };
 
     dconf = {
