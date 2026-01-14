@@ -20,6 +20,7 @@
       todoist-electron
       jq
       yq
+      file
       sqlite
       keepassxc
       remmina
