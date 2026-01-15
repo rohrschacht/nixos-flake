@@ -33,6 +33,12 @@
           '';
         };
 
+        fw_ausweisapp = {
+          body =''
+            sudo iptables -I nixos-fw 6 -p udp --dport 24727 -j nixos-fw-accept
+          '';
+        };
+
         inf = {
           body =''
             set subcmd $argv[1]

@@ -34,6 +34,7 @@
       yubioath-flutter
       xournalpp
       ytmdesktop
+      ausweisapp
     ] ++ [
       inputs.nixpkgs-unstable.legacyPackages.${stdenv.hostPlatform.system}.rclone
     ];
