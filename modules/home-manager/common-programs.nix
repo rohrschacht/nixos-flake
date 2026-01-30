@@ -48,6 +48,12 @@
     programs.yazi = {
       enable = true;
       enableFishIntegration = true;
+
+      keymap = {
+        mgr.prepend_keymap = [
+          { on = "!"; for = "unix"; run = "shell $SHELL --block"; desc = "Open $SHELL here"; }
+        ];
+      };
     };
 
     services.nextcloud-client = {
