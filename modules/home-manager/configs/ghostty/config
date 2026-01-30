@@ -75,3 +75,5 @@ maximize = true
 
 # in Bytes
 scrollback-limit = 10_000_000
+
+window-inherit-working-directory = false
