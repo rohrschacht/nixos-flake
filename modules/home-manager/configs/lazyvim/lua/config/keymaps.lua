@@ -1,0 +1,14 @@
+-- Keymaps are automatically loaded on the VeryLazy event
+-- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
+-- Add any additional keymaps here
+
+-- use `vim.keymap.set` instead
+local map = LazyVim.safe_keymap_set
+
+-- doom emacs
+-- save file
+map("n", "<leader>fs", "<cmd>w<cr><esc>", { desc = "Save File" })
+-- delete this file
+map("n", "<leader>fD", "<cmd>:call delete(expand('%')) | bdelete!<cr><esc>", { desc = "Delete This File" })
+-- go back to normal mode
+map({ "i", "v" }, "fd", "<ESC>")
