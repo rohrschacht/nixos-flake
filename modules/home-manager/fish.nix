@@ -1,4 +1,9 @@
-{ lib, config, pkgs, ...}:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 
 {
   config = {
@@ -32,13 +37,58 @@
         };
 
         fw_ausweisapp = {
-          body =''
+          body = ''
             sudo iptables -I nixos-fw 6 -p udp --dport 24727 -j nixos-fw-accept
           '';
         };
 
+        clidev = {
+          body = ''
+            set subcmd $argv[1]
+
+            if test -z $subcmd
+              echo "Please specify subcommand, either:"
+              echo "flake"
+              echo "clangd"
+              return 1
+            end
+
+            switch $subcmd
+              case flake
+                set flake-template $argv[2]
+                if test -z $flake-template
+                  echo "Please specify flake template, either:"
+                  echo "cpp-dev"
+                  echo "go-dev"
+                  echo "haskell-dev"
+                  echo "javascript-dev"
+                  echo "python-dev"
+                  echo "rust-dev"
+                  echo "scala-dev"
+                  return 2
+                end
+                  
+                switch $flake-template
+                  case cpp-dev go-dev haskell-dev javascript-dev python-dev rust-dev scala-dev
+                    nix flake init --template "github:DeterminateSystems/zero-to-nix#$flake-template"
+                  case '*'
+                    echo "$flake-template not recognized"
+                end
+
+              case clangd
+                mkdir -p build
+                cmake -S . -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -B build
+                ln -s build/compile_commands.json .
+
+              case '*'
+                echo "Unknown subcommand: $subcmd" >&2
+                return 1
+            end
+          '';
+        };
+
         inf = {
-          body =''
+          body = ''
             set subcmd $argv[1]
             set args $argv[2..-1]
 
@@ -99,6 +149,12 @@
         };
       };
 
+      completions = {
+        clidev = ''
+          complete -c clidev -x -a "flake clangd"
+        '';
+      };
+
       shellInit = ''
         set fish_greeting
       '';
@@ -118,13 +174,13 @@
             alias ll 'ls -lh'
             alias la 'ls -lah'
         end
- 
+
         if command -v starship >/dev/null 2>&1
             starship init fish | source
         end
 
         fzf_configure_bindings --directory=\ct --processes=\ck
- 
+
         abbr --add g 'git'
         abbr --add ga 'git add'
         abbr --add gaa 'git add --all'

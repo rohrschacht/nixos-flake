@@ -4,6 +4,7 @@
   imports = [
     ./android-devenv.nix
     ./android.nix
+    ./cpp.nix
     ./go.nix
     ./jsts.nix
     ./neovim.nix
@@ -16,9 +17,6 @@
 
     home.packages = with pkgs; [
       gnumake
-      gcc
-      cmake
-      pkg-config
       jetbrains-toolbox
       direnv
       fh

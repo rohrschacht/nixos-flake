@@ -6,6 +6,7 @@
       neovim
       ansible-lint
       statix
+      nixfmt
     ] ++ [
       inputs.nixpkgs-unstable.legacyPackages.${stdenv.hostPlatform.system}.tree-sitter
     ];
