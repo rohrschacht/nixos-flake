@@ -2,6 +2,10 @@
 
 {
   config = {
+    home.packages = with pkgs; [
+      fishPlugins.fzf-fish
+    ];
+
     programs.fish = {
       enable = true;
 
@@ -9,12 +13,6 @@
         fish_prompt = {
           body = ''
             string join "" -- (set_color red) "[" (set_color yellow) $USER (set_color green) "@" (set_color blue) $hostname (set_color magenta) " " $(prompt_pwd) (set_color red) ']' (set_color normal) "\$ "
-          '';
-        };
-
-        lfcd = {
-          body = ''
-            cd "$(command lf -print-last-dir $argv)"
           '';
         };
 
@@ -106,7 +104,6 @@
       '';
 
       shellAliases = {
-        lf = "lfcd";
         os = "nh os";
         clean = "nh clean";
       };
@@ -114,8 +111,9 @@
       interactiveShellInit = ''
         if command -v eza >/dev/null 2>&1
             alias ls 'eza'
-            alias ll 'eza -lgG'
-            alias la 'eza -lgaG'
+            alias ll 'eza --long --group --grid'
+            alias la 'eza --all --long --group --grid'
+            alias lsg 'eza --all --long --no-permissions --no-user --no-time --git --icons --tree --git-ignore --level=2'
         else
             alias ll 'ls -lh'
             alias la 'ls -lah'
@@ -124,6 +122,8 @@
         if command -v starship >/dev/null 2>&1
             starship init fish | source
         end
+
+        fzf_configure_bindings --directory=\ct --processes=\ck
  
         abbr --add g 'git'
         abbr --add ga 'git add'
@@ -174,5 +174,11 @@
     # myHomeManager.impermanence.cache.directories = [
     #   ".local/share/fish"
     # ];
+
+    programs.fzf = {
+      enable = true;
+      enableFishIntegration = false;
+    };
   };
+
 }

@@ -2,12 +2,13 @@
 
 {
   imports = [
-    ./jsts.nix
-    ./go.nix
-    ./rust.nix
-    ./py.nix
-    ./android.nix
     ./android-devenv.nix
+    ./android.nix
+    ./go.nix
+    ./jsts.nix
+    ./neovim.nix
+    ./py.nix
+    ./rust.nix
   ];
 
   config = {
@@ -33,11 +34,7 @@
       # inputs.nixpkgs-pinned.legacyPackages.${stdenv.hostPlatform.system}.devenv
     ];
 
-
-    home.file.".config/lazygit/config.yml" = {
-      source = ../configs/lazygit/config.yml;
-      recursive = true;
-    };
+    home.file.".config/lazygit/config.yml".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos/modules/home-manager/configs/lazygit/config.yml";
 
     home.sessionVariables = {
       DIRENV_WARN_TIMEOUT="5m";

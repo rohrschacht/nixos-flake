@@ -20,6 +20,10 @@
   };
 
   config = {
+    home.packages = with pkgs; [
+      delta
+    ];
+
     programs.git = {
       enable = true;
 
@@ -31,6 +35,7 @@
 
         core = {
           editor = "vim";
+          pager = "delta";
         };
         pull = {
           ff = "only";
@@ -40,6 +45,20 @@
         };
         push = {
           default = "current";
+        };
+
+        interactive = {
+          diffFilter = "delta --color-only";
+        };
+        delta = {
+          navigate = "true";
+          side-by-side = "true";
+        };
+        merge = {
+          conflictstyle = "diff3";
+        };
+        diff = {
+          colorMoved = "default";
         };
       };
 

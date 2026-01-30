@@ -20,6 +20,7 @@
       todoist-electron
       jq
       yq
+      tlrc
       file
       sqlite
       keepassxc
@@ -54,6 +55,14 @@
           { on = "!"; for = "unix"; run = "shell $SHELL --block"; desc = "Open $SHELL here"; }
         ];
       };
+    };
+
+    programs.zoxide = {
+      enable = true;
+      enableFishIntegration = true;
+      options = [
+        "--cmd j"
+      ];
     };
 
     services.nextcloud-client = {
