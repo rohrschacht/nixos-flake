@@ -3,7 +3,6 @@
 {
   imports = [
     ./system-programs.nix
-    ./build-essentials.nix
     ./main-user.nix
     ./additional-users.nix
     ./container.nix

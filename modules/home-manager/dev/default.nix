@@ -14,6 +14,10 @@
     fonts.fontconfig.enable = true;
 
     home.packages = with pkgs; [
+      gnumake
+      gcc
+      cmake
+      pkg-config
       jetbrains-toolbox
       direnv
       fh
