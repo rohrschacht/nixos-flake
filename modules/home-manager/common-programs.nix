@@ -40,29 +40,31 @@
       inputs.nixpkgs-unstable.legacyPackages.${stdenv.hostPlatform.system}.rclone
     ];
 
-    programs.btop = {
-      enable = true;
-    };
+    programs = {
+      btop = {
+        enable = true;
+      };
 
-    programs.bat.enable = true;
+      bat.enable = true;
 
-    programs.yazi = {
-      enable = true;
-      enableFishIntegration = true;
+      yazi = {
+        enable = true;
+        enableFishIntegration = true;
 
-      keymap = {
-        mgr.prepend_keymap = [
-          { on = "!"; for = "unix"; run = "shell $SHELL --block"; desc = "Open $SHELL here"; }
+        keymap = {
+          mgr.prepend_keymap = [
+            { on = "!"; for = "unix"; run = "shell $SHELL --block"; desc = "Open $SHELL here"; }
+          ];
+        };
+      };
+
+      zoxide = {
+        enable = true;
+        enableFishIntegration = true;
+        options = [
+          "--cmd j"
         ];
       };
-    };
-
-    programs.zoxide = {
-      enable = true;
-      enableFishIntegration = true;
-      options = [
-        "--cmd j"
-      ];
     };
 
     services.nextcloud-client = {
