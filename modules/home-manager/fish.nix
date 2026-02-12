@@ -55,8 +55,8 @@
 
             switch $subcmd
               case flake
-                set flake-template $argv[2]
-                if test -z $flake-template
+                set flakeTemplate $argv[2]
+                if test -z $flakeTemplate
                   echo "Please specify flake template, either:"
                   echo "cpp-dev"
                   echo "go-dev"
@@ -68,11 +68,11 @@
                   return 2
                 end
                   
-                switch $flake-template
+                switch $flakeTemplate
                   case cpp-dev go-dev haskell-dev javascript-dev python-dev rust-dev scala-dev
-                    nix flake init --template "github:DeterminateSystems/zero-to-nix#$flake-template"
+                    nix flake init --template "github:DeterminateSystems/zero-to-nix#$flakeTemplate"
                   case '*'
-                    echo "$flake-template not recognized"
+                    echo "$flakeTemplate not recognized"
                 end
 
               case clangd
