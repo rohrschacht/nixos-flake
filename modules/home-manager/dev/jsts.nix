@@ -9,6 +9,7 @@
     home.packages = with pkgs; [
       deno
       nodejs_20
+      pnpm
     ];
   };
 }
