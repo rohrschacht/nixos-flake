@@ -36,6 +36,9 @@
       xournalpp
       ytmdesktop
       ausweisapp
+      ffmpeg
+      tenacity
+      gcolor3
     ] ++ [
       inputs.nixpkgs-unstable.legacyPackages.${stdenv.hostPlatform.system}.rclone
     ];
