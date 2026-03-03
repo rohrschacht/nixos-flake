@@ -10,6 +10,7 @@
       deno
       nodejs_20
       pnpm
+      postgresql
     ];
   };
 }
