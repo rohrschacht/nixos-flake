@@ -224,6 +224,8 @@
         abbr --add up 'os switch -u'
 
         abbr --add y yy
+
+        abbr --add rls rclone tree --size --human-readable --level=1
       '';
     };
 
