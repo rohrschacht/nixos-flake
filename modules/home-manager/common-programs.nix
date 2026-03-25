@@ -39,6 +39,7 @@
       ffmpeg
       tenacity
       gcolor3
+      dos2unix
     ] ++ [
       inputs.nixpkgs-unstable.legacyPackages.${stdenv.hostPlatform.system}.rclone
     ];
