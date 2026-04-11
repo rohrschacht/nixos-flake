@@ -1,8 +1,17 @@
-{ lib, config, pkgs, inputs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   config = {
     programs.gpg.enable = true;
+    programs.gpg.scdaemonSettings = {
+      disable-ccid = true;
+    };
     services.gpg-agent = {
       enable = true;
       enableExtraSocket = true;
