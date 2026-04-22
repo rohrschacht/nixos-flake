@@ -1,4 +1,9 @@
-{ lib, config, pkgs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 
 {
   config = {
@@ -7,6 +12,11 @@
       terraform
       aha
       wkhtmltopdf
+      kubectl
+      kind
+      kubernetes-helm
+      kubernetes-helmPlugins.helm-diff
+      helmfile
     ];
   };
 }
