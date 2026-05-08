@@ -17,6 +17,7 @@
       kubernetes-helm
       kubernetes-helmPlugins.helm-diff
       helmfile
+      iperf
     ];
   };
 }
