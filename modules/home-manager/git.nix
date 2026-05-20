@@ -33,6 +33,8 @@
           name = config.my.git.name;
         };
 
+        credential.helper = "store";
+
         core = {
           editor = "vim";
           pager = "delta";
