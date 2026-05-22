@@ -7,6 +7,10 @@
 
 {
   config = {
+    home.sessionPath = [
+      "$HOME/.local/bin"
+    ];
+
     home.packages = with pkgs; [
       fishPlugins.fzf-fish
     ];
@@ -162,6 +166,7 @@
       shellAliases = {
         os = "nh os";
         clean = "nh clean";
+        hermes = "~/.hermes/scripts/hermes-sync-wrapper.sh";
       };
 
       interactiveShellInit = ''
