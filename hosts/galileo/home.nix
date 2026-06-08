@@ -80,7 +80,7 @@
   #  /etc/profiles/per-user/tobias/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    
+
   };
 
   # Let Home Manager install and manage itself.

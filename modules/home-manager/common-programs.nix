@@ -18,7 +18,7 @@
         qalculate-gtk
         gimp
         inkscape
-        bitwarden-desktop
+        #bitwarden-desktop
         filezilla
         ferdium
         libreoffice
@@ -64,6 +64,7 @@
       yazi = {
         enable = true;
         enableFishIntegration = true;
+        shellWrapperName = "y";
 
         keymap = {
           mgr.prepend_keymap = [

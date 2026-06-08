@@ -8,7 +8,7 @@
   config = lib.mkIf config.my.dev.jsts.enable {
     home.packages = with pkgs; [
       deno
-      nodejs_20
+      nodejs_24
       pnpm
       postgresql
     ];

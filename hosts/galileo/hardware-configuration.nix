@@ -15,6 +15,8 @@
 
   boot.kernelParams = [ "zfs.zfs_arc_max=4294967296" ];
 
+  boot.zfs.forceImportRoot = false;
+
   fileSystems."/" =
     { device = "zpool/root";
       fsType = "zfs";

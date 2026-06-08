@@ -37,8 +37,8 @@ in
 
     home.packages = with pkgs; [
       jdk17
-      nodejs_20
-      nodePackages.yarn
+      nodejs_24
+      yarn
       prettierd
       # android-studio
       # androidComposition.androidsdk
