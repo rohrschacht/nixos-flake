@@ -1,4 +1,9 @@
-{ lib, config, pkgs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 
 let
   browser = "firefox.desktop";
@@ -56,8 +61,12 @@ in
 
       "application/pdf" = [ "${pdfviewer}" ];
 
-      "application/vnd.openxmlformats-officedocument.presentationml.presentation" = [ "onlyoffice-desktopeditors.desktop" ];
-      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" = [ "onlyoffice-desktopeditors.desktop" ];
+      "application/vnd.openxmlformats-officedocument.presentationml.presentation" = [
+        "onlyoffice-desktopeditors.desktop"
+      ];
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" = [
+        "onlyoffice-desktopeditors.desktop"
+      ];
 
       "text/markdown" = [ "org.gnome.TextEditor.desktop" ];
       "text/plain" = [ "org.gnome.TextEditor.desktop" ];
@@ -76,7 +85,12 @@ in
             caffeine.extensionUuid
             quick-settings-tweaker.extensionUuid
           ];
-          favorite-apps = ["nautilus.desktop" "firefox.desktop" "thunderbird.desktop" "org.gnome.Console.desktop"];
+          favorite-apps = [
+            "nautilus.desktop"
+            "firefox.desktop"
+            "thunderbird.desktop"
+            "org.gnome.Console.desktop"
+          ];
         };
         "org/gnome/settings-daemon/plugins/power" = {
           ambient-enabled = false;
@@ -91,6 +105,7 @@ in
           # color-scheme = "prefer-dark";
           enable-hot-corners = false;
           # font-antialiasing = "grayscale";
+          gtk-enable-primary-paste = true;
           # font-hinting = "slight";
           # gtk-theme = "Nordic";
           # toolkit-accessibility = true;
@@ -118,7 +133,7 @@ in
         "org/gnome/desktop/wm/keybindings" = {
           # activate-window-menu = "disabled";
           # toggle-message-tray = "disabled";
-          close = ["<Super>x"];
+          close = [ "<Super>x" ];
           # maximize = "disabled";
           # minimize = ["<Super>comma"];
           # move-to-monitor-down = "disabled";
@@ -129,33 +144,39 @@ in
           # move-to-workspace-up = "disabled";
           # toggle-maximized = ["<Super>m"]';
           # unmaximize = "disabled";
-          move-to-workspace-1 = ["<Shift><Super>1"];
-          move-to-workspace-2 = ["<Shift><Super>2"];
-          move-to-workspace-3 = ["<Shift><Super>3"];
-          move-to-workspace-4 = ["<Shift><Super>4"];
-          move-to-workspace-5 = ["<Shift><Super>5"];
-          switch-to-workspace-1 = ["<Super>1"];
-          switch-to-workspace-2 = ["<Super>2"];
-          switch-to-workspace-3 = ["<Super>3"];
-          switch-to-workspace-4 = ["<Super>4"];
-          switch-to-workspace-5 = ["<Super>5"];
-          switch-applications = ["<Super>Tab" "<Alt>Tab"];
-          switch-applications-backward = ["<Shift><Super>Tab" "<Shift><Alt>Tab"];
-          cycle-windows = ["<Super>j"];
-          cycle-windows-backward = ["<Super>k"];
+          move-to-workspace-1 = [ "<Shift><Super>1" ];
+          move-to-workspace-2 = [ "<Shift><Super>2" ];
+          move-to-workspace-3 = [ "<Shift><Super>3" ];
+          move-to-workspace-4 = [ "<Shift><Super>4" ];
+          move-to-workspace-5 = [ "<Shift><Super>5" ];
+          switch-to-workspace-1 = [ "<Super>1" ];
+          switch-to-workspace-2 = [ "<Super>2" ];
+          switch-to-workspace-3 = [ "<Super>3" ];
+          switch-to-workspace-4 = [ "<Super>4" ];
+          switch-to-workspace-5 = [ "<Super>5" ];
+          switch-applications = [
+            "<Super>Tab"
+            "<Alt>Tab"
+          ];
+          switch-applications-backward = [
+            "<Shift><Super>Tab"
+            "<Shift><Alt>Tab"
+          ];
+          cycle-windows = [ "<Super>j" ];
+          cycle-windows-backward = [ "<Super>k" ];
         };
         "org/gnome/settings-daemon/plugins/media-keys" = {
-          email = ["<Super>c"];
-          home = ["<Super>e"];
-          www = ["<Super>b"];
+          email = [ "<Super>c" ];
+          home = [ "<Super>e" ];
+          www = [ "<Super>b" ];
           # next = [ "<Shift><Control>n" ];
           # previous = [ "<Shift><Control>p" ];
           # play = [ "<Shift><Control>space" ];
           custom-keybindings = [
             "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
-          #   "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
-          #   "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/"
-          #   "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/"
+            #   "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
+            #   "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/"
+            #   "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/"
           ];
         };
         "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
