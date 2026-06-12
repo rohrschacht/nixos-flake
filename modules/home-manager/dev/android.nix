@@ -1,4 +1,9 @@
-{ lib, config, pkgs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 
 let
   # buildToolsVersion = "34.0.0";
@@ -37,7 +42,7 @@ in
 
     home.packages = with pkgs; [
       jdk17
-      nodejs_24
+      nodejs
       yarn
       prettierd
       # android-studio
@@ -57,8 +62,8 @@ in
     # };
 
     home.sessionVariables = {
-      ANDROID_HOME="$HOME/${localAndroidHome}";
-      ANDROID_NDK_ROOT="$HOME/${localAndroidHome}/ndk-bundle";
+      ANDROID_HOME = "$HOME/${localAndroidHome}";
+      ANDROID_NDK_ROOT = "$HOME/${localAndroidHome}/ndk-bundle";
 
       # Use the same buildToolsVersion here
       # GRADLE_OPTS="-Dorg.gradle.project.android.aapt2FromMavenOverride=${localAndroidHome}/build-tools/${buildToolsVersion}/aapt2";

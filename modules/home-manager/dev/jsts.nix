@@ -1,4 +1,9 @@
-{ lib, config, pkgs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 
 {
   options.my.dev.jsts = {
@@ -8,7 +13,7 @@
   config = lib.mkIf config.my.dev.jsts.enable {
     home.packages = with pkgs; [
       deno
-      nodejs_24
+      nodejs
       pnpm
       postgresql
     ];
