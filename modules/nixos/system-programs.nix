@@ -136,5 +136,10 @@
     };
 
     services.pcscd.enable = true;
+
+    services.languagetool = {
+      enable = true;
+      allowOrigin = "*";
+    };
   };
 }
