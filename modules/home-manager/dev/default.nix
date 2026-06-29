@@ -1,5 +1,17 @@
-{ lib, config, pkgs, inputs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
+let
+  pkgs-unstable = import inputs.nixpkgs-unstable {
+    inherit (pkgs.stdenv.hostPlatform) system;
+    config.allowUnfree = true;
+  };
+in
 {
   imports = [
     ./android-devenv.nix
@@ -15,27 +27,32 @@
   config = {
     fonts.fontconfig.enable = true;
 
-    home.packages = with pkgs; [
-      gnumake
-      jetbrains-toolbox
-      direnv
-      fh
-      # devenv
-      awscli2
-      lazygit
-      devcontainer
-      pre-commit
-      neovim
-      nerd-fonts.symbols-only
-      devpod-desktop
-    ] ++ [
-      # inputs.nixpkgs-pinned.legacyPackages.${stdenv.hostPlatform.system}.devenv
-    ];
+    home.packages =
+      with pkgs;
+      [
+        gnumake
+        jetbrains-toolbox
+        direnv
+        fh
+        # devenv
+        awscli2
+        lazygit
+        devcontainer
+        pre-commit
+        neovim
+        nerd-fonts.symbols-only
+        devpod-desktop
+      ]
+      ++ [
+        pkgs-unstable.opencode
+        pkgs-unstable.claude-code
+      ];
 
-    home.file.".config/lazygit/config.yml".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos/modules/home-manager/configs/lazygit/config.yml";
+    home.file.".config/lazygit/config.yml".source =
+      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos/modules/home-manager/configs/lazygit/config.yml";
 
     home.sessionVariables = {
-      DIRENV_WARN_TIMEOUT="5m";
+      DIRENV_WARN_TIMEOUT = "5m";
     };
 
     my.dev.go.enable = lib.mkDefault true;

@@ -14,13 +14,13 @@
         thunderbird
         google-chrome
         discord
-        signal-desktop
         qalculate-gtk
         gimp
         inkscape
-        #bitwarden-desktop
+        # bitwarden-desktop
         filezilla
         ferdium
+        # telegram-desktop
         libreoffice
         onlyoffice-desktopeditors
         vlc
@@ -42,7 +42,7 @@
         libsecret
         yubioath-flutter
         xournalpp
-        ytmdesktop
+        # ytmdesktop
         ausweisapp
         ffmpeg
         tenacity
@@ -52,6 +52,8 @@
       ]
       ++ [
         inputs.nixpkgs-unstable.legacyPackages.${stdenv.hostPlatform.system}.rclone
+        inputs.nixpkgs-unstable.legacyPackages.${stdenv.hostPlatform.system}.telegram-desktop
+        inputs.nixpkgs-unstable.legacyPackages.${stdenv.hostPlatform.system}.signal-desktop
       ];
 
     programs = {

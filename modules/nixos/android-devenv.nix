@@ -10,8 +10,8 @@
 
     users.users.tobias.extraGroups = [ "adbusers" "plugdev" ];
 
-    programs.adb.enable = true;
     environment.systemPackages = with pkgs; [
+      android-tools
       android-studio
     ];
 
