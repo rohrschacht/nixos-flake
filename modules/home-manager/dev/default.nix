@@ -50,6 +50,8 @@ in
 
     home.file.".config/lazygit/config.yml".source =
       config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos/modules/home-manager/configs/lazygit/config.yml";
+    home.file.".config/lazygit/ai-commit.sh".source =
+      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos/modules/home-manager/configs/lazygit/ai-commit.sh";
 
     home.sessionVariables = {
       DIRENV_WARN_TIMEOUT = "5m";
