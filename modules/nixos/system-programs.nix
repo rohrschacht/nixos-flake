@@ -33,6 +33,7 @@
       dmidecode
       openssl
       unzip
+      busybox
     ];
 
     programs.nix-ld.enable = true;
