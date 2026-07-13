@@ -25,6 +25,8 @@
       LC_TIME = "de_DE.UTF-8";
     };
 
+    boot.kernel.sysctl."kernel.sysrq" = 1;
+
     # Enable the X11 windowing system.
     services.xserver.enable = true;
 
