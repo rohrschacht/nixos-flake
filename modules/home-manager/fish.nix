@@ -167,6 +167,7 @@
         os = "nh os";
         clean = "nh clean";
         hermes = "~/.hermes/scripts/hermes-sync-wrapper.sh";
+        claude-inf = "CLAUDE_CONFIG_DIR=~/.claude-inf claude";
       };
 
       interactiveShellInit = ''
@@ -226,7 +227,8 @@
 
         abbr --add lg 'lazygit'
 
-        abbr --add up 'os switch -u'
+        abbr --add sw 'os switch'
+        abbr --add up 'os boot -u'
 
         abbr --add rls rclone tree --size --human-readable --level=1
       '';
