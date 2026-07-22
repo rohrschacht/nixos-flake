@@ -166,7 +166,6 @@
       shellAliases = {
         os = "nh os";
         clean = "nh clean";
-        hermes = "~/.hermes/scripts/hermes-sync-wrapper.sh";
         claude-inf = "CLAUDE_CONFIG_DIR=~/.claude-inf claude";
       };
 

@@ -49,6 +49,8 @@
         gcolor3
         dos2unix
         kdePackages.gwenview
+        borgbackup
+        borgmatic
       ]
       ++ [
         inputs.nixpkgs-unstable.legacyPackages.${stdenv.hostPlatform.system}.rclone
