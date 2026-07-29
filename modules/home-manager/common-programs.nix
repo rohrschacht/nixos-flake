@@ -51,6 +51,7 @@
         kdePackages.gwenview
         borgbackup
         borgmatic
+        libinput
       ]
       ++ [
         inputs.nixpkgs-unstable.legacyPackages.${stdenv.hostPlatform.system}.rclone
