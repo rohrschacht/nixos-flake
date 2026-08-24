@@ -6,6 +6,10 @@
   ...
 }:
 
+let
+  pkgs-unstable = inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+  zellij-unstable = pkgs-unstable.zellij;
+in
 {
   config = {
     home.packages =
@@ -68,6 +72,9 @@
 
       yazi = {
         enable = true;
+        # yazi < 26.8 hard-codes "inside zellij => sixel only", which lands on
+        # chafa here; newer yazi picks the kgp-old driver zellij 0.45 supports.
+        package = pkgs-unstable.yazi;
         enableFishIntegration = true;
         shellWrapperName = "y";
 
@@ -78,6 +85,27 @@
               for = "unix";
               run = "shell $SHELL --block";
               desc = "Open $SHELL here";
+            }
+            {
+              on = "<C-/>";
+              run = ''
+                shell --orphan -- ${zellij-unstable}/bin/zellij run \
+                  --floating --close-on-exit \
+                  --name "sh: ''${PWD##*/}" \
+                  --cwd "$PWD" -- $SHELL
+              '';
+              desc = "Floating shell here";
+            }
+            {
+              # terminals without CSI-u send Ctrl+/ as 0x1F
+              on = "<C-_>";
+              run = ''
+                shell --orphan -- ${zellij-unstable}/bin/zellij run \
+                  --floating --close-on-exit \
+                  --name "sh: ''${PWD##*/}" \
+                  --cwd "$PWD" -- $SHELL
+              '';
+              desc = "Floating shell here";
             }
           ];
         };

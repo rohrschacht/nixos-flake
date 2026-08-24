@@ -2,6 +2,7 @@
   lib,
   config,
   pkgs,
+  inputs,
   ...
 }:
 
@@ -100,6 +101,7 @@
               echo "Please specify subcommand, either:"
               echo "sync"
               echo "backup"
+              echo "work"
               return 1
             end
 
@@ -108,10 +110,35 @@
                 __inf_rclone_gdrive_sync $args
               case backup
                 __inf_borg_backup $args
+              case work
+                __inf_work $args
               case '*'
                 echo "Unknown subcommand: $subcmd" >&2
                 return 1
             end
+          '';
+        };
+
+        __inf_work = {
+          body = ''
+            if not set -q ZELLIJ
+              echo "inf work must be run inside a zellij session" >&2
+              return 1
+            end
+
+            # New tabs inherit the focused pane's cwd, so all four land where
+            # `inf work` was invoked. Commands are wrapped in interactive fish
+            # because claude-inf is an alias (interactive-only), and `exec fish`
+            # leaves a usable shell in the tab once the command exits.
+            zellij action rename-tab git
+            zellij action new-tab --name claude -- fish -ic 'claude-inf; exec fish'
+            zellij action new-tab --name nvim -- fish -ic 'nvim; exec fish'
+            zellij action new-tab --name shell
+            zellij action go-to-tab-name git
+
+            # Runs in this very pane, so quitting lazygit returns to the prompt.
+            # `zellij run --in-place` would suspend the shell running this script.
+            lazygit
           '';
         };
 

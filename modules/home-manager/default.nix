@@ -13,5 +13,6 @@
     ./gpg.nix
     ./session-variables.nix
     ./vscode.nix
+    ./zellij.nix
   ];
 }
