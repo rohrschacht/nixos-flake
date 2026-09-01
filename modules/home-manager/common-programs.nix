@@ -56,6 +56,7 @@ in
         borgbackup
         borgmatic
         libinput
+        speedtest-cli
       ]
       ++ [
         inputs.nixpkgs-unstable.legacyPackages.${stdenv.hostPlatform.system}.rclone
