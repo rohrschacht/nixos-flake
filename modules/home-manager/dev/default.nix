@@ -46,6 +46,7 @@ in
       ++ [
         pkgs-unstable.opencode
         pkgs-unstable.claude-code
+        pkgs-unstable.zed-editor
       ];
 
     home.file.".config/lazygit/config.yml".source =
