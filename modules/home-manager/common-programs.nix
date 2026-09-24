@@ -57,6 +57,7 @@ in
         borgmatic
         libinput
         speedtest-cli
+        joplin-desktop
       ]
       ++ [
         inputs.nixpkgs-unstable.legacyPackages.${stdenv.hostPlatform.system}.rclone
