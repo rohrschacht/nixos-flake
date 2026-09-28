@@ -58,6 +58,8 @@ in
         libinput
         speedtest-cli
         joplin-desktop
+        zettlr
+        gocryptfs
       ]
       ++ [
         inputs.nixpkgs-unstable.legacyPackages.${stdenv.hostPlatform.system}.rclone
