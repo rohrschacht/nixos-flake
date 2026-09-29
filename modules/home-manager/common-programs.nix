@@ -9,6 +9,16 @@
 let
   pkgs-unstable = inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system};
   zellij-unstable = pkgs-unstable.zellij;
+
+  # in kitty, a float from configs/kitty/float.py
+  yaziFloatingShell = ''
+    shell --orphan -- if [ -n "$KITTY_LISTEN_ON" ]; then
+      kitten @ kitten float.py new "$PWD"
+    else
+      ${zellij-unstable}/bin/zellij run --floating --close-on-exit \
+        --name "sh: ''${PWD##*/}" --cwd "$PWD" -- "$SHELL"
+    fi
+  '';
 in
 {
   config = {
@@ -92,23 +102,13 @@ in
             }
             {
               on = "<C-/>";
-              run = ''
-                shell --orphan -- ${zellij-unstable}/bin/zellij run \
-                  --floating --close-on-exit \
-                  --name "sh: ''${PWD##*/}" \
-                  --cwd "$PWD" -- $SHELL
-              '';
+              run = yaziFloatingShell;
               desc = "Floating shell here";
             }
             {
               # terminals without CSI-u send Ctrl+/ as 0x1F
               on = "<C-_>";
-              run = ''
-                shell --orphan -- ${zellij-unstable}/bin/zellij run \
-                  --floating --close-on-exit \
-                  --name "sh: ''${PWD##*/}" \
-                  --cwd "$PWD" -- $SHELL
-              '';
+              run = yaziFloatingShell;
               desc = "Floating shell here";
             }
           ];

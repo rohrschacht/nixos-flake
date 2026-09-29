@@ -121,20 +121,26 @@
 
         __inf_work = {
           body = ''
-            if not set -q ZELLIJ
-              echo "inf work must be run inside a zellij session" >&2
-              return 1
-            end
-
             # New tabs inherit the focused pane's cwd, so all four land where
             # `inf work` was invoked. Commands are wrapped in interactive fish
             # because claude-inf is an alias (interactive-only), and `exec fish`
             # leaves a usable shell in the tab once the command exits.
-            zellij action rename-tab git
-            zellij action new-tab --name claude -- fish -ic 'claude-inf; exec fish'
-            zellij action new-tab --name nvim -- fish -ic 'nvim; exec fish'
-            zellij action new-tab --name shell
-            zellij action go-to-tab-name git
+            if set -q ZELLIJ
+              zellij action rename-tab git
+              zellij action new-tab --name claude -- fish -ic 'claude-inf; exec fish'
+              zellij action new-tab --name nvim -- fish -ic 'nvim; exec fish'
+              zellij action new-tab --name shell
+              zellij action go-to-tab-name git
+            else if set -q KITTY_WINDOW_ID
+              kitten @ set-tab-title git
+              kitten @ launch --type=tab --tab-title claude --cwd=current fish -ic 'claude-inf; exec fish' >/dev/null
+              kitten @ launch --type=tab --tab-title nvim --cwd=current fish -ic 'nvim; exec fish' >/dev/null
+              kitten @ launch --type=tab --tab-title shell --cwd=current >/dev/null
+              kitten @ focus-tab --match 'title:^git$'
+            else
+              echo "inf work must be run inside zellij or kitty" >&2
+              return 1
+            end
 
             # Runs in this very pane, so quitting lazygit returns to the prompt.
             # `zellij run --in-place` would suspend the shell running this script.
@@ -212,6 +218,22 @@
         end
 
         fzf_configure_bindings --directory=\ct --processes=\ck
+
+        # kitten ssh ships terminfo + shell integration to the remote, so
+        # `launch --cwd=current` (new pane/tab) opens on the remote host too
+        if set -q KITTY_WINDOW_ID
+            function ssh --wraps ssh --description 'kitten ssh'
+                set -l extra
+                # ncurses may ignore ~/.terminfo for root (--disable-root-environ,
+                # e.g. openSUSE), so as root also install it system-wide. The
+                # user comes from ~/.ssh/config, which kitten ssh's hostname
+                # matching in ssh.conf never sees.
+                if command ssh -G $argv 2>/dev/null | string match -q 'user root'
+                    set extra --kitten "copy=--dest /etc/terminfo/x/xterm-kitty ${config.programs.kitty.package.terminfo}/share/terminfo/x/xterm-kitty"
+                end
+                kitten ssh $extra $argv
+            end
+        end
 
         abbr --add g 'git'
         abbr --add ga 'git add'

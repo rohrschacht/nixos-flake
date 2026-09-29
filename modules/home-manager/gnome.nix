@@ -181,7 +181,7 @@ in
         };
         "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
           name = "terminal";
-          command = "ghostty";
+          command = "kitty --start-as=maximized";
           binding = "<Super>Return";
         };
         # "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {

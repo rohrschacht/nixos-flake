@@ -11,6 +11,7 @@
     ./git.nix
     ./gnome.nix
     ./gpg.nix
+    ./kitty.nix
     ./session-variables.nix
     ./vscode.nix
     ./zellij.nix

@@ -23,7 +23,8 @@ in
       enable = true;
       package = pkgs-unstable.zellij;
       exitShellOnExit = true;
-      enableFishIntegration = true;
+      # autostart off while trying kitty-only; `zellij` still works by hand
+      enableFishIntegration = false;
 
       # Additive to zellij's built-in defaults: no `clear-defaults`, so every
       # default keybinding still applies. Alt+t and Alt+1..9 are unbound by
