@@ -12,14 +12,23 @@
       themeFile = "adwaita_dark";
 
       font = {
-        name = "Hack Nerd Font Mono";
-        size = 10;
+        # Narrow width, ExtraLight weight; its own family, so bold is set below
+        name = "Martian Mono Nr xLt";
+        size = 11;
       };
+
+      # modify_font repeats, which the settings attrset can't express
+      extraConfig = ''
+        modify_font cell_width 92%
+        modify_font cell_height 110%
+      '';
 
       shellIntegration.mode = "no-cursor";
 
       # Mirrors configs/ghostty/config where kitty has an equivalent.
       settings = {
+        bold_font = "Martian Mono Nr Rg";
+
         # ghostty's "Adwaita Dark" palette; kitty-themes' adwaita_dark (above,
         # kept for tab/border colors) uses different terminal colors.
         # Settings come after the theme include, so these win.
