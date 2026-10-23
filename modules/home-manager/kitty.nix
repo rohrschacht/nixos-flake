@@ -72,7 +72,8 @@
         enabled_layouts = "splits,stack";
         tab_bar_edge = "top";
         tab_bar_style = "powerline";
-        confirm_os_window_close = 0;
+        # ask only when a window runs something (needs shell integration)
+        confirm_os_window_close = -1;
 
         # stash tabs holding hidden floats (float.py) stay out of the tab bar
         tab_bar_filter = "not title:^__float_stash_";
@@ -138,6 +139,9 @@
     xdg.configFile."kitty/ssh.conf".text = ''
       shell_integration no-cursor
       env BASHRC_SOURCED
+      # stock Debian/Ubuntu ~/.bashrc only colours the prompt for
+      # TERM=*-256color; this is its own switch for "colour if tput setaf works"
+      env force_color_prompt=yes
     '';
 
     # Kittens and the title bar hook are plain Python, kept next to the
