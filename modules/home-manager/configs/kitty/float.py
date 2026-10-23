@@ -12,6 +12,8 @@
 #   kitten float.py focus DIR      zellij's MoveFocusOrTab: focus the pane in
 #                                  DIR (left/right/up/down), else switch tabs;
 #                                  on a focused float, left/right cycle instead
+#   kitten float.py move DIR       move the window in DIR, else (left/right)
+#                                  move the tab
 #
 # Also loaded as a watcher (kitty.conf `watcher float.py`): closing the
 # visible float brings up the next one, a tab's stash is closed together with
@@ -166,6 +168,17 @@ def handle_result(args, answer, target_window_id, boss):
             elif which == "right":
                 boss.next_tab()
             return
+
+    if action == "move":
+        which = args[2]
+        edge = {"up": "top", "down": "bottom"}.get(which, which)
+        if tab.neighboring_group_id(edge):
+            tab.move_window(edge)
+        elif which == "left":
+            tm.move_tab(-1)
+        elif which == "right":
+            tm.move_tab(1)
+        return
 
     if action == "new_or_split":
         active = tab.active_window

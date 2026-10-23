@@ -104,10 +104,10 @@
         "alt+up" = "kitten float.py focus up";
         "alt+right" = "kitten float.py focus right";
 
-        "alt+shift+h" = "move_window left";
-        "alt+shift+j" = "move_window down";
-        "alt+shift+k" = "move_window up";
-        "alt+shift+l" = "move_window right";
+        "alt+shift+h" = "kitten float.py move left";
+        "alt+shift+j" = "kitten float.py move down";
+        "alt+shift+k" = "kitten float.py move up";
+        "alt+shift+l" = "kitten float.py move right";
 
         "alt+equal" = "resize_window wider";
         "alt+minus" = "resize_window narrower";
