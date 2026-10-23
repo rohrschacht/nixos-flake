@@ -10,6 +10,17 @@ let
   pkgs-unstable = inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system};
   zellij-unstable = pkgs-unstable.zellij;
 
+  # nixpkgs doesn't package this version; the tarball must be added manually:
+  # nix-prefetch-url file://$PWD/linuxx64-gcc-8-26.04.10.1.tar.gz
+  citrix-workspace = pkgs.citrix_workspace.overrideAttrs (_: {
+    version = "26.04.10.1";
+    src = pkgs.requireFile {
+      name = "linuxx64-gcc-8-26.04.10.1.tar.gz";
+      sha256 = "1danfdalqdc5cjw59r55igv217bpi6dv0fsxrc1aikd4sk5242lc";
+      url = "https://www.citrix.com/downloads/workspace-app/linux/";
+    };
+  });
+
   # in kitty, a float from configs/kitty/float.py
   yaziFloatingShell = ''
     shell --orphan -- if [ -n "$KITTY_LISTEN_ON" ]; then
@@ -22,6 +33,9 @@ let
 in
 {
   config = {
+    # citrix_workspace still depends on EOL libsoup 2
+    nixpkgs.config.permittedInsecurePackages = [ "libsoup-2.74.3" ];
+
     home.packages =
       with pkgs;
       [
@@ -72,6 +86,7 @@ in
         gocryptfs
       ]
       ++ [
+        citrix-workspace
         inputs.nixpkgs-unstable.legacyPackages.${stdenv.hostPlatform.system}.rclone
         inputs.nixpkgs-unstable.legacyPackages.${stdenv.hostPlatform.system}.telegram-desktop
         inputs.nixpkgs-unstable.legacyPackages.${stdenv.hostPlatform.system}.signal-desktop
