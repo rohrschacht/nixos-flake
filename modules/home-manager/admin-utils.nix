@@ -14,6 +14,7 @@
       wkhtmltopdf
       kubectl
       kind
+      k3d
       kubernetes-helm
       kubernetes-helmPlugins.helm-diff
       helmfile
