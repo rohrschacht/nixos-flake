@@ -12,22 +12,23 @@
       themeFile = "adwaita_dark";
 
       font = {
-        # Narrow width, ExtraLight weight; its own family, so bold is set below
-        name = "Martian Mono Nr xLt";
-        size = 11;
+        name = "Nordwand Mono ExtraLight";
+        size = 14;
       };
 
       # modify_font repeats, which the settings attrset can't express
       extraConfig = ''
-        modify_font cell_width 92%
-        modify_font cell_height 110%
+        modify_font cell_width 100%
+        modify_font cell_height 100%
       '';
 
       shellIntegration.mode = "no-cursor";
 
       # Mirrors configs/ghostty/config where kitty has an equivalent.
       settings = {
-        bold_font = "Martian Mono Nr Rg";
+        # auto picks Nordwand's Bold, too heavy next to ExtraLight
+        bold_font = ''family="Nordwand Mono" style="Medium"'';
+        bold_italic_font = ''family="Nordwand Mono" style="Medium Italic"'';
 
         # ghostty's "Adwaita Dark" palette; kitty-themes' adwaita_dark (above,
         # kept for tab/border colors) uses different terminal colors.
