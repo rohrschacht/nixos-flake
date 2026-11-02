@@ -6,6 +6,7 @@
     ./main-user.nix
     ./additional-users.nix
     ./container.nix
+    ./snx-vpn.nix
     ./virtualization.nix
     ./desktop.nix
     ./portable.nix

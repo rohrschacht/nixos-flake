@@ -27,6 +27,7 @@
     steam.enable = false;
     container.enable = true;
     virt.enable = true;
+    snx-vpn.enable = true;
     additional-users.valerie.enable = true;
     dev.android.enable = false;
   };
