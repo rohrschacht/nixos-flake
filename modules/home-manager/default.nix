@@ -13,6 +13,7 @@
     ./gpg.nix
     ./kitty.nix
     ./session-variables.nix
+    ./vault.nix
     ./vscode.nix
     ./zellij.nix
   ];

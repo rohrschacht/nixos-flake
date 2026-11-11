@@ -21,6 +21,8 @@
     ./../../modules/home-manager
   ];
 
+  my.vault.enable = true;
+
   my.git = {
     email = "tobias@rohrschacht.de";
     name = "Tobias Petrich";
