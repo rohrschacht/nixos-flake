@@ -108,6 +108,21 @@
     # started in user sessions.
     programs.mtr.enable = true;
 
+    # Lives here (not home-manager): enableVirtualCamera loads the
+    # v4l2loopback kernel module, which only the NixOS module can do.
+    programs.obs-studio = {
+      enable = true;
+      enableVirtualCamera = true;
+      plugins = with pkgs.obs-studio-plugins; [
+        # wlrobs
+        obs-backgroundremoval
+        # obs-pipewire-audio-capture
+        # obs-vaapi #optional AMD hardware acceleration
+        # obs-gstreamer
+        # obs-vkcapture
+      ];
+    };
+
     services.clamav = {
       daemon = {
         enable = true;

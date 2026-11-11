@@ -6,6 +6,27 @@
   ...
 }:
 
+let
+  # WirePlumber drop-in that hides every real webcam (and its libcamera twin)
+  # from PipeWire, so PipeWire clients only see "OBS Cam". OBS itself reads
+  # the webcam via V4L2 directly and is unaffected. Matching on device.name
+  # because api.v4l2.cap.* isn't set yet when the rules run; real cameras are
+  # "v4l2_device.pci-…", the loopback is "v4l2_device._sys_devices_virtual…".
+  obscamOnlyConf = pkgs.writeText "50-hide-laptop-camera.conf" ''
+    monitor.v4l2.rules = [
+      {
+        matches = [ { device.name = "~v4l2_device.pci-*" } ]
+        actions = { update-props = { device.disabled = true } }
+      }
+    ]
+    monitor.libcamera.rules = [
+      {
+        matches = [ { device.name = "~libcamera_device.*" } ]
+        actions = { update-props = { device.disabled = true } }
+      }
+    ]
+  '';
+in
 {
   config = {
     home.sessionPath = [
@@ -44,6 +65,47 @@
         fw_ausweisapp = {
           body = ''
             sudo iptables -I nixos-fw 6 -p udp --dport 24727 -j nixos-fw-accept
+          '';
+        };
+
+        # Firefox (with media.webrtc.camera.allow-pipewire) otherwise tries the
+        # webcam OBS is holding and hangs ~9s per attempt before giving up.
+        obscam = {
+          body = ''
+            set subcmd $argv[1]
+            set conf $HOME/.config/wireplumber/wireplumber.conf.d/50-hide-laptop-camera.conf
+
+            switch "$subcmd"
+              case on
+                mkdir -p (path dirname $conf)
+                ln -sf ${obscamOnlyConf} $conf
+                systemctl --user restart wireplumber
+                # Restarting also makes WirePlumber re-probe OBS Cam, which it
+                # only sees as a camera while the virtual camera is running.
+                sleep 2
+                if not wpctl status | string match -q '*OBS Cam (V4L2)*'
+                  echo "OBS Cam not visible: start the virtual camera in OBS, then run 'obscam on' again" >&2
+                  return 1
+                end
+              case off
+                rm -f $conf
+                systemctl --user restart wireplumber
+                sleep 2
+              case status
+              case '*'
+                echo "Please specify subcommand, either:"
+                echo "on"
+                echo "off"
+                echo "status"
+                return 1
+            end
+
+            if test -e $conf
+              echo "obscam: on (webcams hidden, only OBS Cam)"
+            else
+              echo "obscam: off (all cameras visible)"
+            end
+            wpctl status | sed -n '/^Video/,/Streams/p' | sed -n '/Sources:/,/Filters:/{/Filters:/d;p}'
           '';
         };
 
@@ -189,6 +251,9 @@
       completions = {
         clidev = ''
           complete -c clidev -x -a "flake clangd"
+        '';
+        obscam = ''
+          complete -c obscam -x -a "on off status"
         '';
       };
 
