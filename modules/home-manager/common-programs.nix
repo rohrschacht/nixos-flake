@@ -84,6 +84,7 @@ in
         joplin-desktop
         zettlr
         gocryptfs
+        cifs-utils
       ]
       ++ [
         citrix-workspace
