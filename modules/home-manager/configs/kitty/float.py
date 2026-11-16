@@ -14,10 +14,14 @@
 #                                  on a focused float, left/right cycle instead
 #   kitten float.py move DIR       move the window in DIR, else (left/right)
 #                                  move the tab
+#   kitten float.py local_tab      new tab on the local host, even from a
+#                                  window inside kitten ssh
 #
 # Also loaded as a watcher (kitty.conf `watcher float.py`): closing the
 # visible float brings up the next one, a tab's stash is closed together with
 # the tab, and only floats get a window title bar (see on_load).
+
+import os
 
 from kittens.tui.handler import result_handler
 from kitty.fast_data_types import add_timer, attach_window
@@ -178,6 +182,19 @@ def handle_result(args, answer, target_window_id, boss):
             tm.move_tab(-1)
         elif which == "right":
             tm.move_tab(1)
+        return
+
+    if action == "local_tab":
+        # --cwd=current/root clone kitten ssh (root does whenever the window's
+        # root process is kitten ssh itself: floats, splits, cloned tabs); a
+        # literal path never does. child.current_cwd is the local cwd of the
+        # window's root process (fish, or the local kitten ssh).
+        w = boss.window_id_map.get(target_window_id) or tab.active_window
+        if w is not None and w.ssh_kitten_cmdline():
+            cwd = w.child.current_cwd or os.path.expanduser("~")
+        else:
+            cwd = "current"
+        boss.launch("--type=tab", f"--cwd={cwd}")
         return
 
     if action == "new_or_split":

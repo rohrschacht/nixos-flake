@@ -89,8 +89,9 @@
         listen_on = "unix:@kitty-{kitty_pid}";
       };
 
-      # Alt shortcuts modelled on zellij's. `--cwd=current` on every launch
-      # also makes new windows inside `kitten ssh` open on the remote host.
+      # Alt shortcuts modelled on zellij's, overview in docs/kitty-shortcuts.md. `--cwd=current` (splits, floats,
+      # alt+shift+t) also makes new windows inside `kitten ssh` open on the
+      # remote host; alt+t stays local.
       keybindings = {
         # new float when a float is focused (like zellij), else a split
         "alt+n" = "kitten float.py new_or_split";
@@ -123,7 +124,10 @@
         "alt+f" = "kitten float.py toggle";
         "alt+shift+f" = "kitten float.py cycle";
 
-        "alt+t" = "launch --type=tab --cwd=current";
+        # alt+t always opens locally (see float.py local_tab), alt+shift+t
+        # follows kitten ssh
+        "alt+t" = "kitten float.py local_tab";
+        "alt+shift+t" = "launch --type=tab --cwd=current";
         "alt+r" = "set_tab_title";
       }
       // lib.listToAttrs (
