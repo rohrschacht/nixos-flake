@@ -45,7 +45,8 @@ in
         devpod-desktop
       ]
       ++ [
-        # pkgs-unstable.opencode
+        pkgs-unstable.opencode
+        pkgs-unstable.opencode-desktop
         pkgs-unstable.claude-code
         pkgs-unstable.zed-editor
       ];
