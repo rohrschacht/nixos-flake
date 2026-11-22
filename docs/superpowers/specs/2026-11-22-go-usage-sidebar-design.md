@@ -1,7 +1,7 @@
 # Go usage + cache status in the TUI sidebar — design
 
 Date: 2026-11-22 (rev 2 — architect findings folded in)
-Status: approach A chosen; design pending user approval
+Status: approved by tobias 2026-11-22 (approach A; rev 2 + hidden-timer acceptance)
 Owner: tobias (via planner session)
 
 ## Intent
@@ -190,12 +190,13 @@ Sanitized only: error name/code + operation. Never whole context/config/
 provider objects, responses, requests, or headers (resolved credentials can
 live there).
 
-## Open question (for tobias)
+## Resolved question
 
-If task 1 finds no reliable sidebar-visibility signal: is **"timers run only
-while the slot is mounted, including while visually hidden"** acceptable?
-Cost while hidden: one local computation per second + at most one small
-local-server GET per minute; zero Go allowance. Recommendation: accept.
+Tobias accepted (2026-11-22): if task 1 finds no reliable sidebar-visibility
+signal, timers run while the slot is mounted, including while visually
+hidden. Cost while hidden: one local computation per second + at most one
+small local-server GET per minute; zero Go allowance. If a visibility signal
+is found, pause work while hidden.
 
 ## Left to the builder
 
