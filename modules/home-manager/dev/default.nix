@@ -38,6 +38,7 @@ in
         awscli2
         lazygit
         glab
+        gh
         devcontainer
         pre-commit
         neovim
